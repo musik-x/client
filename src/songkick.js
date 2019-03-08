@@ -8,6 +8,7 @@ function getArtistEvents(artist) {
         }
     })
     .then(({data}) => {
+        $('#artist-news').empty()
         $('#artist-event-list').empty()
         $('#artist-news').hide()
         $('#artist-event-list').show()
@@ -69,6 +70,7 @@ function getNews(artist) {
     })
     .then(({data}) => {
         console.log(data)
+        $('#artist-event-list').empty()
         $('#artist-news').empty()
         $('#artist-news').show()
         $('#artist-event-list').hide()

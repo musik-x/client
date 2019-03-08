@@ -2,8 +2,8 @@ const server = axios.create({
     baseURL: 'http://localhost:3000'
 })
 
-$(function () {
-  server.get('/api/spotify/')
+function defaultHome(){
+    server.get('/api/spotify/')
     .then(({data})=>{
       let htmls = ''
       if (!data.artists) return ''
@@ -30,10 +30,15 @@ $(function () {
       $('#spotifyList').html(htmls)
       $('#spotifyReadByArtist').empty()
     })
+}
+
+$(function () {
+    defaultHome();
 
   $('#form-query')
     .keypress(function (event) {
       var keycode = (event.keyCode ? event.keyCode : event.which)
+      if(this.value.length < 1){ defaultHome()}
       if (keycode == '13') {
         server.get('/api/spotify/search/artists/'+this.value.replace(/[^\w\s]/g, ''))
           .then(({data})=>{

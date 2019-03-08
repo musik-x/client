@@ -65,6 +65,7 @@ $(function () {
       }
     })
 })
+
 let query = ''
 
 if (!localStorage.getItem('token')) {
@@ -150,7 +151,24 @@ function pageArtist(id){
                   <p class="card-text">Follower: ${artist.followers.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
                   <p class="card-text">Genre: ${artist.genres.join(', ')}</p>
               </div>
-            
+              <div>
+                <a href="#" onclick="getArtistEvents('${artist.name}')">Events</a>
+                <div id="loadingGif1" style="display: none;">
+                    <img src="https://media.tenor.com/images/1200075e7ad907ee57e6b70f500bce57/tenor.gif" alt="">
+                </div>
+              </div> 
+              <div class="ml-3">
+                <a href="#" onclick="getNews('${artist.name}')">News</a>
+                <div id="loadingGif2" style="display: none;">
+                    <img src="https://media.tenor.com/images/1200075e7ad907ee57e6b70f500bce57/tenor.gif" alt="">
+                </div>
+              </div>
+              <div>
+                <ul id="artist-event-list"></ul>
+              </div>
+              <div>
+                <ul id="artist-news"></ul>
+              </div>
           </div>
         <ul id="spotifyListAlbum" class="list-group mt-2" style="width: 100%"></ul>`;
       $('#spotifyReadByArtist').html(html)

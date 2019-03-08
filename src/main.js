@@ -25,12 +25,20 @@ $(function () {
       $('#spotifyList').html(htmls)
     })
 })
+let query = ''
 
 if (!localStorage.getItem('token')) {
     noLogin()
 } else {
     login()
 }
+
+$('#form-query').on('keyup', function() {
+    let value = $(this).val().toLowerCase();
+    // console.log(value)
+    query = value
+    //tembak ke server spotify
+})
 
 function login() {
     $('.usersLogin').show()

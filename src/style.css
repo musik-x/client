@@ -1,0 +1,19 @@
+.jumbotron {
+    background-image: url('https://images.pexels.com/photos/1849200/pexels-photo-1849200.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=710');
+    /* background-image: url('https://images.pexels.com/photos/1389429/pexels-photo-1389429.jpeg?auto=compress&cs=tinysrgb&h=650&w=940') !important; */
+    background-size: cover;
+}
+body {
+    overscroll-behavior: none;
+}
+#logo {
+    font-family: 'Indie Flower', cursive;
+    font-size: 2em;
+}
+.music-content {
+    border: 1px solid white;
+}
+#form-query {
+    border-radius: 33px;
+    width: 500px;
+}

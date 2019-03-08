@@ -2,8 +2,8 @@ const server = axios.create({
     baseURL: 'http://localhost:3000'
 })
 
-$(function () {
-  server.get('/api/spotify/')
+function defaultHome(){
+    server.get('/api/spotify/')
     .then(({data})=>{
       let htmls = ''
       if (!data.artists) return ''
@@ -30,10 +30,15 @@ $(function () {
       $('#spotifyList').html(htmls)
       $('#spotifyReadByArtist').empty()
     })
+}
+
+$(function () {
+    defaultHome();
 
   $('#form-query')
     .keypress(function (event) {
       var keycode = (event.keyCode ? event.keyCode : event.which)
+      if(this.value.length < 1){ defaultHome()}
       if (keycode == '13') {
         server.get('/api/spotify/search/artists/'+this.value.replace(/[^\w\s]/g, ''))
           .then(({data})=>{
@@ -65,6 +70,7 @@ $(function () {
       }
     })
 })
+
 let query = ''
 
 if (!localStorage.getItem('token')) {
@@ -150,7 +156,24 @@ function pageArtist(id){
                   <p class="card-text">Follower: ${artist.followers.total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
                   <p class="card-text">Genre: ${artist.genres.join(', ')}</p>
               </div>
-            
+              <div>
+                <a href="#" onclick="getArtistEvents('${artist.name}')">Events</a>
+                <div id="loadingGif1" style="display: none;">
+                    <img src="https://media.tenor.com/images/1200075e7ad907ee57e6b70f500bce57/tenor.gif" alt="">
+                </div>
+              </div> 
+              <div class="ml-3">
+                <a href="#" onclick="getNews('${artist.name}')">News</a>
+                <div id="loadingGif2" style="display: none;">
+                    <img src="https://media.tenor.com/images/1200075e7ad907ee57e6b70f500bce57/tenor.gif" alt="">
+                </div>
+              </div>
+              <div>
+                <ul id="artist-event-list"></ul>
+              </div>
+              <div>
+                <ul id="artist-news"></ul>
+              </div>
           </div>
         <ul id="spotifyListAlbum" class="list-group mt-2" style="width: 100%"></ul>`;
       $('#spotifyReadByArtist').html(html)

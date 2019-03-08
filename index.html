@@ -21,10 +21,10 @@
         <div class="collapse navbar-collapse ml-5" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item active usersLogin">
-                <form class="form-inline my-2 my-lg-0">
+                <!-- <form class="form-inline my-2 my-lg-0"> -->
                     <input class="form-control mr-sm-2" id="form-query" type="text" placeholder="Search">
                     <!-- <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button> -->
-                </form>
+                <!-- </form> -->
             </li>
             </ul>
             <button class="btn usersLogin" onclick="signOut()">Logout</button>
@@ -49,9 +49,16 @@
         <div class="row" id="spotifyReadByArtist"></div>
     </div>
 
-    <!-- <div id="loadingGif">
-        <img src="https://cdn.cssauthor.com/wp-content/uploads/2018/06/Silver-Balls-Swinging.gif" alt="">
-    </div> -->
+    <div id="loadingGif" style="display: none;">
+        <!-- <img src="https://cdn.cssauthor.com/wp-content/uploads/2018/06/Silver-Balls-Swinging.gif" alt=""> -->
+        <!-- <img src="https://cdn.dribbble.com/users/29348/screenshots/2705762/final-gif.gif" alt=""> -->
+        <!-- <img src="https://venuehire.spacecentre.co.uk/wp-content/themes/nsc-creative/img/loading.gif" alt=""> -->
+        <img src="https://media.tenor.com/images/1200075e7ad907ee57e6b70f500bce57/tenor.gif" alt="">
+    </div>
+
+    <!-- <button onclick="getArtistEvents('eminem')">Events</button>
+    <button onclick="getEventDetail('21889213')">getdetail</button>
+    <button onclick="getUpcomingEvents('billie eilish')">Honne</button> -->
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -60,5 +67,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <script src="./src/main.js"></script>
+    <script src="./src/songkick.js"></script>
 </body>
 </html>
